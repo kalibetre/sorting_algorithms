@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * bubble_sort - bubble sort algorithm implementation
+ * insertion_sort_list - sorts a list using insertion algorithm
  * @list: the doubly linked list to be sorted
  */
 void insertion_sort_list(listint_t **list)
