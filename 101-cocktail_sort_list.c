@@ -99,7 +99,7 @@ void cocktail_sort_list(listint_t **list)
 	int swap = 1;
 	listint_t *tail;
 
-	if (list != NULL || *list != NULL || (*list)->next != NULL)
+	if (list != NULL && *list != NULL && (*list)->next != NULL)
 	{
 		do {
 			swap = forward_bubble(list, &tail);
