@@ -40,7 +40,7 @@ void mod_counting_sort(int *array, size_t size, int factor)
 
 	for (j = 0; j < size; j++)
 		count_ary[(array[j] / factor) % 10]++;
-	for (j = 1; j < 11; j++)
+	for (j = 1; j < 10; j++)
 		count_ary[j] += count_ary[j - 1];
 
 	output = malloc(sizeof(int) * size);
