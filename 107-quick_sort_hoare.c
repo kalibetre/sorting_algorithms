@@ -31,22 +31,18 @@ void swap_ar_2(int *array, size_t size, int i, int j)
  *
  * Return: returns the index of the pivot
  */
-int hoare_partition(int *array, size_t size, int low, int high)
+int hoare_partition(int *array, ssize_t size, int low, int high)
 {
-	int i = low - 1, j = high + 1, pvt = low;
+	ssize_t i = low - 1, j = high + 1;
+	int pvt = array[high];
 
 	while (1)
 	{
-		do {
-			i++;
-		} while (array[i] < array[pvt]);
-
-		do {
-			j--;
-		} while (array[j] > array[pvt]);
+		while (array[++i] < pvt);
+		while (array[--j] > pvt);
 
 		if (i >= j)
-			return (j);
+			return (i);
 
 		swap_ar_2(array, size, i, j);
 	}
@@ -66,8 +62,8 @@ void quick_sort_2(int *array, size_t size, int low, int high)
 	if (low < high)
 	{
 		pvt = hoare_partition(array, size, low, high);
-		quick_sort_2(array, size, low, pvt);
-		quick_sort_2(array, size, pvt + 1, high);
+		quick_sort_2(array, size, low, pvt - 1);
+		quick_sort_2(array, size, pvt, high);
 	}
 }
 
