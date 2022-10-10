@@ -38,8 +38,10 @@ int hoare_partition(int *array, ssize_t size, int low, int high)
 
 	while (1)
 	{
-		while (array[++i] < pvt);
-		while (array[--j] > pvt);
+		while (array[++i] < pvt)
+		;
+		while (array[--j] > pvt)
+		;
 
 		if (i >= j)
 			return (i);
