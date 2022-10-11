@@ -62,7 +62,7 @@ void bitonic_sort_rec(int *array, size_t size, size_t low, size_t k, int dir)
 	bitonic_sort_rec(array, size, low + k / 2, k / 2, 0);
 	bitonic_merge(array, low, k, dir);
 
-	printf("Merging [%lu/%lu] (%s):\n", k, size, dir ? "UP" : "DOWN");
+	printf("Result [%lu/%lu] (%s):\n", k, size, dir ? "UP" : "DOWN");
 	print_array(array + low, k);
 }
 
