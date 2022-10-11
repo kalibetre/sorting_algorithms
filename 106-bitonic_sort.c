@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * swap_ar_2 - swaps two array elements and prints the result
+ * swap_ar_3 - swaps two array elements and prints the result
  * @array: the array
  * @i: the first index
  * @j: the second index
@@ -27,19 +27,19 @@ void swap_ar_3(int *array, size_t i, size_t j)
  */
 void bitonic_merge(int *array, size_t low, size_t k, int dir)
 {
-    size_t i;
+	size_t i;
 
-    if (k < 2)
-        return;
+	if (k < 2)
+		return;
 
-    for (i = low; i < low + k / 2; i++)
-    {
-        if (dir == (array[i] > array[i + k / 2]))
-            swap_ar_3(array, i, i + k / 2);
-    }
+	for (i = low; i < low + k / 2; i++)
+	{
+		if (dir == (array[i] > array[i + k / 2]))
+			swap_ar_3(array, i, i + k / 2);
+	}
 
-    bitonic_merge(array, low, k / 2, dir);
-    bitonic_merge(array, low + k / 2, k / 2, dir);
+	bitonic_merge(array, low, k / 2, dir);
+	bitonic_merge(array, low + k / 2, k / 2, dir);
 }
 
 /**
@@ -52,18 +52,18 @@ void bitonic_merge(int *array, size_t low, size_t k, int dir)
  */
 void bitonic_sort_rec(int *array, size_t size, size_t low, size_t k, int dir)
 {
-    if (k < 2)
-        return;
+	if (k < 2)
+		return;
 
-    printf("Merging [%lu/%lu] (%s):\n", k, size, dir ? "UP": "DOWN");
-    print_array(array + low, k);
+	printf("Merging [%lu/%lu] (%s):\n", k, size, dir ? "UP" : "DOWN");
+	print_array(array + low, k);
 
-    bitonic_sort_rec(array, size, low, k / 2, 1);
-    bitonic_sort_rec(array, size, low + k / 2, k / 2, 0);
-    bitonic_merge(array, low, k, dir);
+	bitonic_sort_rec(array, size, low, k / 2, 1);
+	bitonic_sort_rec(array, size, low + k / 2, k / 2, 0);
+	bitonic_merge(array, low, k, dir);
 
-    printf("Merging [%lu/%lu] (%s):\n", k, size, dir ? "UP": "DOWN");
-    print_array(array + low, k);
+	printf("Merging [%lu/%lu] (%s):\n", k, size, dir ? "UP" : "DOWN");
+	print_array(array + low, k);
 }
 
 /**
@@ -73,8 +73,8 @@ void bitonic_sort_rec(int *array, size_t size, size_t low, size_t k, int dir)
  */
 void bitonic_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
+	if (array == NULL || size < 2)
+		return;
 
-    bitonic_sort_rec(array, size, 0, size, 1);
+	bitonic_sort_rec(array, size, 0, size, 1);
 }
